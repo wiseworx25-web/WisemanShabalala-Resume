@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wiseman Shabalala | AI Architect • Future Builder</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ibm-blue: #0066cc;
+      --ibm-light: #f5f7fa;
+      --ibm-gray: #e0e4e8;
+      --ibm-dark: #212529;
+      --accent: #00cc99;
+      --white: #ffffff;
+      --shadow: 0 4px 20px rgba(0,0,0,0.05);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      --glass: rgba(255,255,255,0.85);
+      --font: 'IBM Plex Sans', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font);
+    }
+
+    body {
+      background: var(--ibm-light);
+      color: var(--ibm-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: url('assets/hero.jpg') center top / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--ibm-blue);
+      letter-spacing: -0.5px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideInUp 1s ease-out forwards;
+    }
+
+    .hero .tagline {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideInUp 1s ease-out 0.3s forwards;
+      font-style: italic;
+      color: var(--ibm-dark);
+    }
+
+    .hero .philosophy {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      padding: 1rem;
+      border-left: 4px solid var(--accent);
+      background: rgba(0,204,153,0.05);
+      border-radius: 0 8px 8px 0;
+      font-weight: 500;
+      color: var(--ibm-dark);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideInUp 1s ease-out 0.6s forwards;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--ibm-blue);
+      color: var(--white);
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(0,102,204,0.2);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideInUp 1s ease-out 0.9s forwards;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,102,204,0.3);
+    }
+
+    @keyframes slideInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 3rem auto 5rem;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      transition: var(--transition);
+      border: 1px solid var(--ibm-gray);
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      color: var(--ibm-blue);
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    h2.visible {
+      animation: slideInUp 0.8s ease-out forwards;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    h2 i {
+      color: var(--accent);
+    }
+
+    .executive-summary p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, rgba(0,204,153,0.1) 0%, transparent 100%);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .skill-category h3 {
+      color: var(--ibm-blue);
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-category h3 i {
+      color: var(--accent);
+    }
+
+    .skill-category p {
+      color: var(--ibm-dark);
+      line-height: 1.6;
+    }
+
+    /* Logo Grid */
+    .transformations {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--glass);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      padding: 1.4rem;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      transition: var(--transition);
+      border: 1px solid var(--ibm-gray);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .project-card.visible {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+
+    .project-card:hover::before {
+      height: 8px;
+    }
+
+    .logo-placeholder {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,204,153,0.1);
+      border-radius: 50%;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 0.3rem;
+    }
+
+    .project-card img {
+      max-width: 80px;
+      max-height: 80px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+      filter: brightness(0.95);
+      transition: var(--transition);
+    }
+
+    .project-card:hover img {
+      filter: brightness(1);
+    }
+
+    .project-card h4 {
+      font-size: 1.1rem;
+      color: var(--ibm-dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      color: var(--ibm-gray);
+      line-height: 1.5;
+    }
+
+    /* Certs Section */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .cert-card {
+      background: var(--glass);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--ibm-gray);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: var(--transition);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .cert-card.visible {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .cert-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+
+    .cert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+      border-color: var(--accent);
+    }
+
+    .cert-card:hover::before {
+      width: 8px;
+    }
+
+    .cert-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(0,204,153,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    .cert-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ibm-dark);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .cert-issuer {
+      font-size: 0.9rem;
+      color: var(--ibm-gray);
+      margin-bottom: 0.5rem;
+    }
+
+    .cert-date {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .cert-link {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: var(--ibm-blue);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--ibm-blue);
+      transition: var(--transition);
+    }
+
+    .cert-link:hover {
+      color: var(--accent);
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .journey-item {
+      margin-bottom: 2rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .journey-item::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--ibm-blue);
+      color: var(--white);
+      margin-top: 3rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.5rem 1rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 30px;
+      transition: var(--transition);
+    }
+
+    .contact-links a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.05);
+    }
+
+    /* QR Code Section */
+    .qr-section {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: var(--ibm-light);
+      margin-top: 2rem;
+    }
+
+    .qr-section h2 {
+      color: var(--ibm-blue);
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideInUp 0.8s ease-out 0.3s forwards;
+    }
+
+    .qr-code {
+      max-width: 200px;
+      margin: 0 auto;
+      border: 2px solid var(--ibm-gray);
+      border-radius: 12px;
+      padding: 1rem;
+      background: var(--white);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideInUp 0.8s ease-out 0.6s forwards;
+    }
+
+    .qr-caption {
+      font-size: 0.9rem;
+      color: var(--ibm-gray);
+      margin-top: 1rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideInUp 0.8s ease-out 0.9s forwards;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.6rem; }
+      .hero .tagline { font-size: 1.2rem; }
+      .hero .philosophy { font-size: 1rem; }
+      main { margin-top: 2rem; }
+      .transformations { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Wiseman Shabalala</h1>
+      <div class="tagline">Solution Architecture Strategist • AI Innovator • Gen AI Dev • DevOps</div>
+      <p class="philosophy">
+        “I am not here to follow the future. I am here to build it— before it asks permission.”
+      </p>
+      <a href="#contact" class="cta-button">Let’s Build the Future</a>
+    </div>
+  </section>
+
+  <main>
+
+    <section class="card executive-summary">
+      <h2><i class="fas fa-user-tie"></i> Executive Summary</h2>
+      <p>
+        Visionary leader at the intersection of <span class="highlight">philosophy, psychology, and cutting-edge technology</span>. 
+        With under five years of experience, Wiseman has driven digital transformation across Africa’s most critical sectors — 
+        from energy and telecommunications to public health infrastructure and cultural enterprise.
+      </p>
+      <p>
+        At <strong>IBM South Africa</strong>, he operates as a junior in title but delivers <strong>senior-level impact</strong> — 
+        leading enterprise architecture, AI strategy, and human-centered transformation.
+      </p>
+      <p>
+        <strong>Measurable outcomes:</strong> Solutions that accelerate time-to-market by up to <strong>60%</strong>, 
+        reduce operational downtime by <strong>41%</strong>, and unlock <strong>R2.8 billion+</strong> in cumulative client value.
+      </p>
+      <p>
+        Wiseman doesn’t just deploy AI. He <strong>humanizes data</strong> and <strong>architects meaning</strong>.
+      </p>
+    </section>
+
+    <!-- Key Transformations with Logos -->
+    <section class="card">
+      <h2><i class="fas fa-project-diagram"></i> Key Transformations</h2>
+      <div class="transformations">
+
+        <div class="project-card">
+          <img src="assets/Department of health.png" alt="Department of Health SA">
+          <h4>Department of Health</h4>
+          <p>Migrated legacy health data into Microsoft Data Lakehouse; enabled real-time analytics & POPIA compliance.</p>
+        </div>
+
+        <div class="project-card">
+          <img src="assets/exxaro.png" alt="Exxaro">
+          <h4>Exxaro</h4>
+          <p>AI-driven mining platform with data masking; double-digit efficiency gains.</p>
+        </div>
+
+        <div class="project-card">
+          <img src="assets/astron.png" alt="Astron Energy">
+          <h4>Astron Energy</h4>
+          <p>GenAI for customer engagement & fuel retail intelligence.</p>
+        </div>
+
+        <div class="project-card">
+          <img src="assets/mtn.png" alt="MTN">
+          <h4>MTN</h4>
+          <p>Cloud-native network modernization + workforce upskilling in DevOps.</p>
+        </div>
+
+        <div class="project-card">
+          <img src="assets/telkom.png" alt="Telkom">
+          <h4>Telkom</h4>
+          <p>Reduced system downtime by 41% via real-time analytics & microservices.</p>
+        </div>
+
+        <div class="project-card">
+          <img src="assets/eskom (eppf).png" alt="Eskom (EPPF)">
+          <h4>Eskom (EPPF)</h4>
+          <p>Comprehensive AI maturity assessment & roadmap for financial services.</p>
+        </div>
+
+        <div class="project-card">
+          <img src="assets/toyota.png" alt="Toyota SA">
+          <h4>Toyota SA</h4>
+          <p>GenAI on manufacturing floor for self-correcting production lines.</p>
+        </div>
+
+        <div class="project-card">
+          <img src="assets/emteerecords.png" alt="eMtee Records">
+          <h4>eMtee Records</h4>
+          <p>Tripled streaming reach in 12 months via data-driven fan engagement.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Professional Journey -->
+    <section class="card">
+      <h2><i class="fas fa-briefcase"></i> Professional Journey</h2>
+      <div class="journey-item">
+        <h3>Senior Executive Intern – IBM South Africa (2024–Present)</h3>
+        <p>Lead enterprise architecture & AI strategy for Fortune 500 clients and government. Certified in IBM GenAI, Watsonx, Trustworthy AI, DevOps, and more.</p>
+      </div>
+      <div class="journey-item">
+        <h3>Technology & Culture Consultant (2023–Present)</h3>
+        <p>Advised African governments and corporates on ethical AI, digital identity, and narrative-led transformation.</p>
+      </div>
+      <div class="journey-item">
+        <h3>Media & Entertainment Strategist (2023)</h3>
+        <p>Produced chart-topping content for YFM & SABC; repositioned eMtee Records into a data-powered music empire.</p>
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section class="card">
+      <h2><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
+      <h3>University of the Witwatersrand (2013)</h3>
+      <p>Bachelor of Arts in Psychology — foundation for human-centered tech solutions.</p>
+
+      <h3 style="margin-top: 2rem;">Professional Certifications</h3>
+      <div class="certs-grid">
+
+        <!-- 1. Git -->
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fab fa-git-alt"></i></div>
+          <div class="cert-title">Git Masterclass</div>
+          <div class="cert-issuer">Warp 9 Training · Codestars</div>
+          <div class="cert-date">Issued: 2024</div>
+          <span class="cert-link">Training Completion</span>
+        </div>
+
+        <!-- 2. Enterprise Design Thinking - Team Essentials -->
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-lightbulb"></i></div>
+          <div class="cert-title">Enterprise Design Thinking – Team Essentials for AI</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-date">Issued: 31 Jul 2024</div>
+          <a href="https://www.credly.com/go/CMzn9LzE" class="cert-link" target="_blank">Verify Credential</a>
+        </div>
+
+        <!-- 3. Enterprise Design Thinking Practitioner -->
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-user-friends"></i></div>
+          <div class="cert-title">Enterprise Design Thinking Practitioner</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-date">Issued: 31 Jul 2024</div>
+          <a href="https://www.credly.com/go/lq9PGOMq" class="cert-link" target="_blank">Verify Credential</a>
+        </div>
+
+        <!-- 4. IBM Cloud Advocate -->
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fab fa-cloud"></i></div>
+          <div class="cert-title">IBM Cloud Advocate Essentials</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-date">Issued: 29 Oct 2024</div>
+          <a href="https://www.credly.com/go/0Rs4PNTR" class="cert-link" target="_blank">Verify Credential</a>
+        </div>
+
+        <!-- 5. Chatbot Building -->
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-robot"></i></div>
+          <div class="cert-title">Chatbot Building Essentials with IBM watsonx Assistant (V2)</div>
+          <div class="cert-issuer">Coursera · Authorized by IBM</div>
+          <div class="cert-date">Issued: 30 Sep 2025</div>
+          <a href="https://www.credly.com/go/KFdY5ji0" class="cert-link" target="_blank">Verify Credential</a>
+        </div>
+
+        <!-- 6. Intelligent Virtual Agents -->
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-comments"></i></div>
+          <div class="cert-title">Introduction to Intelligent Virtual Agents (IVAs)</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-date">Issued: 24 Sep 2025</div>
+          <a href="https://www.credly.com/badges/03c7c87b-0611-49d5-ae94-677afa19e2a0" class="cert-link" target="_blank">Verify Credential</a>
+        </div>
+
+        <!-- 7. watsonx Essentials -->
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-brain"></i></div>
+          <div class="cert-title">IBM watsonx Essentials</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-date">Issued: 16 Jan 2025</div>
+          <span class="cert-link">Internal IBM Credential</span>
+        </div>
+
+        <!-- 8. Generative AI Foundations -->
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-infinity"></i></div>
+          <div class="cert-title">IBM Generative AI Foundations</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-date">Issued: 16 Jan 2025</div>
+          <a href="https://www.credly.com/go/LNpHvuKn" class="cert-link" target="_blank">Verify Credential</a>
+        </div>
+
+        <!-- 9. Trustworthy AI -->
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="cert-title">Trustworthy AI and AI Ethics</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-date">Issued: 15 Jan 2025</div>
+          <a href="https://www.credly.com/go/cOZI8QLx" class="cert-link" target="_blank">Verify Credential</a>
+        </div>
+
+        <!-- 10. Consulting Certificate -->
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-handshake"></i></div>
+          <div class="cert-title">IBM Consulting Certificate – Client Engagement Excellence</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-date">Completed: Nov 2024</div>
+          <span class="cert-link">Internal IBM Credential</span>
+        </div>
+
+        <!-- 11. Integrity Badge -->
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-star"></i></div>
+          <div class="cert-title">IBM Integrity Badge – Ethical Leadership</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-date">Issued: Jul 2024</div>
+          <span class="cert-link">Internal IBM Credential</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Thought Leadership -->
+    <section class="card">
+      <h2><i class="fas fa-lightbulb"></i> Thought Leadership</h2>
+      <p>Keynote speaker on AI, culture, and digital transformation. Trusted C-suite advisor across finance, energy, telecom, and public sectors.</p>
+      <p class="philosophy" style="margin-top: 1rem;">
+        “I lead with clarity, courage, and finesse. No noise. No ego. Just purpose, precision, and relentless execution.<br>
+        Technology without narrative is a tool without soul.”
+      </p>
+    </section>
+
+  </main>
+
+  <footer id="contact">
+    <h3>Let’s build the future — before it asks permission.</h3>
+    <div class="contact-links">
+      <a href="https://linkedin.com/in/wiseman-shabalala-1b142b317" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="tel:+27837254362"><i class="fas fa-phone"></i> Call</a>
+      <a href="mailto:Wiseman.Shabalala@ibm.com"><i class="fas fa-envelope"></i> Email</a>
+    </div>
+    <p style="margin-top: 1.5rem; opacity: 0.8;">Ready to partner on your next intelligent-systems initiative? Let’s co-create what’s next.</p>
+  </footer>
+
+  <!-- QR Code Section -->
+  <section class="qr-section">
+    <h2><i class="fas fa-qrcode"></i> Scan to View My Bio</h2>
+    <div class="qr-code">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wiseman-shabalala.netlify.app" alt="QR Code to Wiseman's Bio" style="width:100%; height:auto;"/>
+    </div>
+    <p class="qr-caption">Scan with your phone camera to view this profile instantly</p>
+  </section>
+
+  <script>
+    // Animate elements on scroll
+    document.addEventListener("DOMContentLoaded", function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      // Observe all cards and headings
+      document.querySelectorAll('.card, h2, .project-card, .cert-card').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+
+</body>
+</html>
