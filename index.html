@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wiseman Shabalala | AI Architect • Future Builder</title>
+  <title>Wiseman Shabalala | Solution Architecture Strategist • AI Innovator • DevOps Engineer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --ibm-blue: #0066cc;
-      --ibm-light: #f5f7fa;
-      --ibm-gray: #e0e4e8;
-      --ibm-dark: #212529;
+      --ibm-light: #f8f9fc;
+      --ibm-gray: #e6e9ed;
+      --ibm-dark: #1a1a1a;
       --accent: #00cc99;
       --white: #ffffff;
-      --shadow: 0 4px 20px rgba(0,0,0,0.05);
+      --shadow: 0 4px 24px rgba(0,0,0,0.06);
       --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      --glass: rgba(255,255,255,0.85);
-      --font: 'IBM Plex Sans', sans-serif;
+      --glass: rgba(255,255,255,0.92);
+      --font: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
     * {
@@ -30,31 +30,61 @@
     body {
       background: var(--ibm-light);
       color: var(--ibm-dark);
-      line-height: 1.6;
+      line-height: 1.62;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Subtle hero watermark */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -15%;
+      right: -10%;
+      width: 800px;
+      height: 800px;
+      background-image: url('assets/hero.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.03;
+      z-index: 0;
+      border-radius: 50%;
+      transform: rotate(15deg);
+      pointer-events: none;
     }
 
     /* Hero Section */
     .hero {
       height: 100vh;
-      background: url('assets/hero.jpg') center top / cover no-repeat;
+      background: linear-gradient(135deg, rgba(245,247,250,0.95), rgba(255,255,255,0.85)), url('assets/hero.jpg') center center / cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       position: relative;
       overflow: hidden;
+      z-index: 1;
     }
 
-    .hero::before {
-      content: "";
+    .profile-avatar {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
-      z-index: 1;
+      top: 35px;
+      left: 35px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--white);
+      box-shadow: 0 6px 20px rgba(0,102,204,0.25);
+      background: var(--white) url('assets/hero.jpg') center/cover no-repeat;
+      background-size: cover;
+      z-index: 10;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .profile-avatar:hover {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 8px 25px rgba(0,102,204,0.35);
     }
 
     .hero-content {
@@ -62,129 +92,96 @@
       z-index: 2;
       max-width: 800px;
       padding: 2rem;
+      text-align: center;
     }
 
     .hero h1 {
-      font-size: 3.8rem;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
+      font-size: 3.9rem;
+      margin-bottom: 0.4rem;
+      font-weight: 700;
       color: var(--ibm-blue);
-      letter-spacing: -0.5px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: slideInUp 1s ease-out forwards;
+      letter-spacing: -0.8px;
     }
 
     .hero .tagline {
-      font-size: 1.6rem;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: slideInUp 1s ease-out 0.3s forwards;
+      font-size: 1.7rem;
+      margin-bottom: 1.6rem;
       font-style: italic;
       color: var(--ibm-dark);
+      font-weight: 500;
     }
 
     .hero .philosophy {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      padding: 1rem;
+      font-size: 1.25rem;
+      max-width: 620px;
+      margin: 0 auto 2.2rem;
+      padding: 1.1rem 1.4rem;
       border-left: 4px solid var(--accent);
-      background: rgba(0,204,153,0.05);
-      border-radius: 0 8px 8px 0;
+      background: rgba(0,204,153,0.07);
+      border-radius: 0 10px 10px 0;
       font-weight: 500;
       color: var(--ibm-dark);
-      opacity: 0;
-      transform: translateY(30px);
-      animation: slideInUp 1s ease-out 0.6s forwards;
+      line-height: 1.6;
     }
 
     .cta-button {
       display: inline-block;
       background: var(--ibm-blue);
       color: var(--white);
-      padding: 0.8rem 1.8rem;
-      border-radius: 30px;
+      padding: 0.85rem 2rem;
+      border-radius: 32px;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
       transition: var(--transition);
-      box-shadow: 0 4px 12px rgba(0,102,204,0.2);
-      opacity: 0;
-      transform: translateY(30px);
-      animation: slideInUp 1s ease-out 0.9s forwards;
+      box-shadow: 0 5px 15px rgba(0,102,204,0.28);
+      font-size: 1.05rem;
+      letter-spacing: -0.3px;
+      margin-top: 1rem;
     }
 
     .cta-button:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 6px 20px rgba(0,102,204,0.3);
-    }
-
-    @keyframes slideInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      transform: translateY(-4px) scale(1.06);
+      box-shadow: 0 8px 25px rgba(0,102,204,0.4);
+      background: #0055b3;
     }
 
     /* Main Content */
     main {
       max-width: 1200px;
-      margin: 3rem auto 5rem;
-      padding: 0 1.5rem;
+      margin: 2.8rem auto 5rem;
+      padding: 0 2rem;
       position: relative;
       z-index: 2;
     }
 
     .card {
       background: var(--glass);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
       box-shadow: var(--shadow);
-      padding: 2.5rem;
-      margin-bottom: 2rem;
-      transition: var(--transition);
-      border: 1px solid var(--ibm-gray);
+      padding: 2.8rem;
+      margin-bottom: 2.4rem;
+      border: 1px solid rgba(224,228,232,0.7);
       position: relative;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .card.visible {
-      opacity: 1;
-      transform: translateY(0);
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     h2 {
       color: var(--ibm-blue);
-      margin-bottom: 1.5rem;
-      font-size: 2rem;
+      margin-bottom: 1.6rem;
+      font-size: 2.1rem;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       position: relative;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    h2.visible {
-      animation: slideInUp 0.8s ease-out forwards;
+      font-weight: 700;
     }
 
     h2::after {
       content: '';
       position: absolute;
-      bottom: -8px;
+      bottom: -10px;
       left: 0;
-      width: 60px;
+      width: 68px;
       height: 4px;
       background: var(--accent);
       border-radius: 2px;
@@ -192,72 +189,42 @@
 
     h2 i {
       color: var(--accent);
+      font-size: 1.4rem;
     }
 
     .executive-summary p {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      line-height: 1.7;
+      font-size: 1.15rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.75;
+      color: #222;
     }
 
     .highlight {
-      background: linear-gradient(120deg, rgba(0,204,153,0.1) 0%, transparent 100%);
-      padding: 0.2rem 0.4rem;
+      background: linear-gradient(120deg, rgba(0,204,153,0.15) 0%, transparent 100%);
+      padding: 0.25rem 0.5rem;
       border-radius: 4px;
       font-weight: 600;
       color: var(--accent);
     }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-
-    .skill-category h3 {
-      color: var(--ibm-blue);
-      margin-bottom: 0.75rem;
-      font-size: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .skill-category h3 i {
-      color: var(--accent);
-    }
-
-    .skill-category p {
-      color: var(--ibm-dark);
-      line-height: 1.6;
-    }
-
     /* Logo Grid */
     .transformations {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.8rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 2rem;
+      margin-top: 1.8rem;
     }
 
     .project-card {
       background: var(--glass);
-      backdrop-filter: blur(8px);
-      border-radius: 12px;
-      padding: 1.4rem;
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
+      padding: 1.7rem;
       text-align: center;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-      transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.07);
       border: 1px solid var(--ibm-gray);
       position: relative;
       overflow: hidden;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .project-card.visible {
-      animation: fadeInUp 0.6s ease-out forwards;
     }
 
     .project-card::before {
@@ -268,84 +235,57 @@
       width: 100%;
       height: 4px;
       background: var(--accent);
-      transition: var(--transition);
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-      border-color: var(--accent);
-    }
-
-    .project-card:hover::before {
-      height: 8px;
-    }
-
-    .logo-placeholder {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0,204,153,0.1);
-      border-radius: 50%;
-      color: var(--accent);
-      font-weight: bold;
-      font-size: 0.85rem;
-      text-align: center;
-      padding: 0.3rem;
     }
 
     .project-card img {
-      max-width: 80px;
-      max-height: 80px;
+      max-width: 95px;
+      max-height: 95px;
       object-fit: contain;
-      margin-bottom: 1rem;
-      filter: brightness(0.95);
+      margin: 0 auto 1.3rem;
+      filter: brightness(0.85) contrast(1.05);
       transition: var(--transition);
+      box-shadow: 0 0 18px rgba(0,204,153,0.25);
+      border-radius: 10px;
+      padding: 10px;
+      background: rgba(255,255,255,0.75);
     }
 
     .project-card:hover img {
-      filter: brightness(1);
+      filter: brightness(1) contrast(1);
+      transform: scale(1.08);
     }
 
     .project-card h4 {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: var(--ibm-dark);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
     }
 
     .project-card p {
-      font-size: 0.9rem;
-      color: var(--ibm-gray);
-      line-height: 1.5;
+      font-size: 0.98rem;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 0;
     }
 
     /* Certs Section */
     .certs-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1.7rem;
     }
 
     .cert-card {
       background: var(--glass);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(12px);
       border: 1px solid var(--ibm-gray);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: var(--transition);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border-radius: 16px;
+      padding: 1.8rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
       position: relative;
       overflow: hidden;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .cert-card.visible {
-      animation: fadeInUp 0.6s ease-out forwards;
     }
 
     .cert-card::before {
@@ -353,62 +293,54 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 4px;
+      width: 5px;
       height: 100%;
       background: var(--accent);
-      transition: var(--transition);
-    }
-
-    .cert-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
-      border-color: var(--accent);
-    }
-
-    .cert-card:hover::before {
-      width: 8px;
     }
 
     .cert-icon {
-      width: 50px;
-      height: 50px;
-      background: rgba(0,204,153,0.1);
+      width: 56px;
+      height: 56px;
+      background: rgba(0,204,153,0.14);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       color: var(--accent);
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
 
     .cert-title {
-      font-size: 1.1rem;
+      font-size: 1.18rem;
       font-weight: 600;
       color: var(--ibm-dark);
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
+      margin-bottom: 0.6rem;
+      line-height: 1.4;
     }
 
     .cert-issuer {
-      font-size: 0.9rem;
-      color: var(--ibm-gray);
-      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: 0.6rem;
+      font-weight: 500;
     }
 
     .cert-date {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--accent);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.9rem;
+      font-weight: 600;
     }
 
     .cert-link {
       display: inline-block;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--ibm-blue);
       text-decoration: none;
       border-bottom: 1px dotted var(--ibm-blue);
-      transition: var(--transition);
+      word-break: break-all;
+      font-weight: 500;
     }
 
     .cert-link:hover {
@@ -417,34 +349,88 @@
     }
 
     .journey-item {
-      margin-bottom: 2rem;
+      margin-bottom: 2.4rem;
       position: relative;
-      padding-left: 2rem;
+      padding-left: 2.4rem;
     }
 
     .journey-item::before {
       content: "•";
       position: absolute;
       left: 0;
-      top: 0;
+      top: -3px;
       color: var(--accent);
-      font-size: 2rem;
+      font-size: 2.3rem;
       line-height: 1;
+      font-weight: bold;
+    }
+
+    .journey-item h3 {
+      font-size: 1.35rem;
+      color: var(--ibm-blue);
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+    }
+
+    .journey-item .date {
+      color: var(--ibm-blue);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      font-size: 1.02rem;
+    }
+
+    /* Skills Grid */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-category {
+      background: rgba(0,102,204,0.03);
+      border-radius: 12px;
+      padding: 1.4rem;
+      border-left: 3px solid var(--ibm-blue);
+    }
+
+    .skill-category h3 {
+      color: var(--ibm-blue);
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+    }
+
+    .skill-category h3 i {
+      color: var(--accent);
+      font-size: 1.25rem;
+    }
+
+    .skill-category p {
+      color: #222;
+      line-height: 1.7;
+      font-size: 0.98rem;
     }
 
     footer {
       text-align: center;
-      padding: 2rem;
-      background: var(--ibm-blue);
+      padding: 2.6rem;
+      background: linear-gradient(135deg, var(--ibm-blue), #004799);
       color: var(--white);
-      margin-top: 3rem;
+      margin-top: 4rem;
+      box-shadow: 0 -6px 25px rgba(0,0,0,0.12);
+      position: relative;
+      z-index: 3;
     }
 
     .contact-links {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1rem;
+      gap: 2rem;
+      margin-top: 1.5rem;
       flex-wrap: wrap;
     }
 
@@ -453,151 +439,238 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 0.5rem 1rem;
-      background: rgba(255,255,255,0.1);
-      border-radius: 30px;
+      gap: 8px;
+      padding: 0.7rem 1.5rem;
+      background: rgba(255,255,255,0.14);
+      border-radius: 35px;
       transition: var(--transition);
+      font-weight: 500;
+      font-size: 1.05rem;
     }
 
     .contact-links a:hover {
-      background: rgba(255,255,255,0.2);
-      transform: scale(1.05);
+      background: rgba(255,255,255,0.26);
+      transform: scale(1.08);
     }
 
     /* QR Code Section */
     .qr-section {
       text-align: center;
-      padding: 3rem 1.5rem;
+      padding: 3.2rem 1.8rem;
       background: var(--ibm-light);
-      margin-top: 2rem;
+      margin-top: 3rem;
+      border-top: 1px solid var(--ibm-gray);
     }
 
     .qr-section h2 {
       color: var(--ibm-blue);
-      margin-bottom: 1rem;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: slideInUp 0.8s ease-out 0.3s forwards;
+      margin-bottom: 1.4rem;
     }
 
     .qr-code {
-      max-width: 200px;
+      max-width: 220px;
       margin: 0 auto;
-      border: 2px solid var(--ibm-gray);
-      border-radius: 12px;
-      padding: 1rem;
+      border: 3px solid var(--ibm-gray);
+      border-radius: 18px;
+      padding: 1.4rem;
       background: var(--white);
-      opacity: 0;
-      transform: translateY(30px);
-      animation: slideInUp 0.8s ease-out 0.6s forwards;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.09);
     }
 
     .qr-caption {
-      font-size: 0.9rem;
-      color: var(--ibm-gray);
-      margin-top: 1rem;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: slideInUp 0.8s ease-out 0.9s forwards;
+      font-size: 1rem;
+      color: #555;
+      margin-top: 1.4rem;
+      font-weight: 500;
+    }
+
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.2rem;
+    }
+
+    .industry-card {
+      background: rgba(0,204,153,0.06);
+      border-radius: 12px;
+      padding: 1.3rem;
+      text-align: center;
+      border: 1px solid rgba(0,204,153,0.2);
+    }
+
+    .industry-card h4 {
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
     }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.6rem; }
-      .hero .tagline { font-size: 1.2rem; }
-      .hero .philosophy { font-size: 1rem; }
-      main { margin-top: 2rem; }
+      .hero h1 { font-size: 2.9rem; }
+      .hero .tagline { font-size: 1.4rem; }
+      .hero .philosophy { font-size: 1.1rem; padding: 0.95rem 1.2rem; }
+      .profile-avatar { width: 90px; height: 90px; top: 25px; left: 25px; }
+      main { margin-top: 2.4rem; padding: 0 1.4rem; }
       .transformations { grid-template-columns: 1fr; }
       .certs-grid { grid-template-columns: 1fr; }
+      .card { padding: 2.2rem 1.8rem; }
+      .project-card { padding: 1.4rem; }
+      .skills-container { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      .hero { display: none; }
+      .profile-avatar { display: none; }
+      .no-print { display: none !important; }
+      body { background: white; padding: 1.5cm; color: #111; }
+      body::before { display: none; }
+      .card { box-shadow: none; border: 1px solid #ddd; background: white; }
+      .project-card img { filter: brightness(1) !important; box-shadow: none !important; }
+      a { color: var(--ibm-blue) !important; text-decoration: underline !important; }
+      h2::after { background: #000; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Profile Avatar - Top Left Corner -->
+  <div class="profile-avatar"></div>
+
   <section class="hero">
     <div class="hero-content">
       <h1>Wiseman Shabalala</h1>
-      <div class="tagline">Solution Architecture Strategist • AI Innovator • Gen AI Dev • DevOps</div>
+      <div class="tagline">Solution Architecture Strategist • AI Innovator • Gen AI Dev • DevOps Engineer</div>
       <p class="philosophy">
-        “I am not here to follow the future. I am here to build it— before it asks permission.”
+        "I am not here to follow the future. I am here to build it—before it asks permission."
       </p>
-      <a href="#contact" class="cta-button">Let’s Build the Future</a>
+      <a href="#contact" class="cta-button">Let's Build the Future</a>
     </div>
   </section>
 
   <main>
 
     <section class="card executive-summary">
-      <h2><i class="fas fa-user-tie"></i> Executive Summary</h2>
+      <h2><i class="fas fa-user-tie"></i> Professional Profile</h2>
       <p>
-        Visionary leader at the intersection of <span class="highlight">philosophy, psychology, and cutting-edge technology</span>. 
-        With under five years of experience, Wiseman has driven digital transformation across Africa’s most critical sectors — 
-        from energy and telecommunications to public health infrastructure and cultural enterprise.
+        Solution Architecture Strategist specializing in <span class="highlight">AI innovation</span>, <span class="highlight">cloud-native transformation</span>, and <span class="highlight">DevOps engineering</span>. Combines hands-on technical execution with strategic advisory to bridge complex business challenges and scalable technology solutions across public health, energy, telecommunications, and financial services sectors.
       </p>
       <p>
-        At <strong>IBM South Africa</strong>, he operates as a junior in title but delivers <strong>senior-level impact</strong> — 
-        leading enterprise architecture, AI strategy, and human-centered transformation.
+        Currently building and maintaining cloud infrastructure at <strong>MTN South Africa</strong> while having architected GenAI and cloud-native solution blueprints for enterprise clients at <strong>IBM South Africa</strong>. Known for rapid domain mastery, clear communication across technical and business audiences, and delivering architectures that clients execute with confidence.
       </p>
       <p>
-        <strong>Measurable outcomes:</strong> Solutions that accelerate time-to-market by up to <strong>60%</strong>, 
-        reduce operational downtime by <strong>41%</strong>, and unlock <strong>R2.8 billion+</strong> in cumulative client value.
+        Leverages psychology background to design <strong>human-centered technology</strong> that drives adoption and trust—ensuring AI and cloud solutions serve real people, not just technical requirements.
       </p>
-      <p>
-        Wiseman doesn’t just deploy AI. He <strong>humanizes data</strong> and <strong>architects meaning</strong>.
-      </p>
+    </section>
+
+    <!-- Core Competencies -->
+    <section class="card">
+      <h2><i class="fas fa-star"></i> Core Competencies</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3><i class="fas fa-brain"></i> AI & Strategy</h3>
+          <p>Solution Architecture • AI Strategy • GenAI Development • Trustworthy AI • Maturity Assessment • Risk Modeling • Ethical AI • Prompt Engineering • RAG Architecture • Ideation • Advisory • Scoping • Co-Design</p>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+          <p>Cloud Computing • DevOps • CI/CD • Azure DevOps • Microsoft Azure • Containerization • Docker • Kubernetes • Infrastructure-as-Code • Resilience Architecture • Event-Driven Patterns • IBM Technologies</p>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-code"></i> Development</h3>
+          <p>Python • JavaScript • PowerShell • Git • REST APIs • Visual Studio Code • React (foundational) • HTML/CSS • SQL • API-First Design • Technical Proficiency</p>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-users"></i> Business & Leadership</h3>
+          <p>Client Relationship Management • Project Coordination • Sales Acumen • Public Speaking • Facilitation • Cross-Functional Collaboration • Strategic Thinking • Problem Solving • Clear Communication • Adaptability • Human-Centered Design • UX Design • Agile Principles</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industry Experience -->
+    <section class="card">
+      <h2><i class="fas fa-industry"></i> Industry Experience</h2>
+      <div class="industry-grid">
+        <div class="industry-card">
+          <h4>Telecommunications</h4>
+          <p>Foundational experience with MTN and Telkom cloud-native transformation and network modernization initiatives.</p>
+        </div>
+        <div class="industry-card">
+          <h4>Automotive</h4>
+          <p>Foundational experience with Toyota SA on GenAI implementation for manufacturing intelligence and production line optimization.</p>
+        </div>
+        <div class="industry-card">
+          <h4>Energy & Mining</h4>
+          <p>Advisory experience with Exxaro on AI-driven operational intelligence and data governance frameworks for mining operations.</p>
+        </div>
+        <div class="industry-card">
+          <h4>Public Health</h4>
+          <p>Strategic contribution to Department of Health data modernization initiatives with POPIA-compliant analytics frameworks.</p>
+        </div>
+        <div class="industry-card">
+          <h4>Financial Services</h4>
+          <p>AI maturity assessment and roadmap development for Eskom's Employee Provident Pension Fund (EPPF) operations.</p>
+        </div>
+        <div class="industry-card">
+          <h4>Retail Energy</h4>
+          <p>GenAI framework development for Astron Energy customer engagement and fuel retail intelligence.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Key Transformations with Logos -->
     <section class="card">
-      <h2><i class="fas fa-project-diagram"></i> Key Transformations</h2>
+      <h2><i class="fas fa-project-diagram"></i> Client Engagements & Solution Architecture</h2>
+      <p style="margin-bottom:2rem; color:#444; font-style:italic; font-size:1.05rem;">
+        Solution architecture and strategic advisory—designed for client execution and adoption
+      </p>
       <div class="transformations">
 
         <div class="project-card">
           <img src="assets/Department of health.png" alt="Department of Health SA">
           <h4>Department of Health</h4>
-          <p>Migrated legacy health data into Microsoft Data Lakehouse; enabled real-time analytics & POPIA compliance.</p>
+          <p>Architected migration strategy for legacy health data systems to Microsoft Data Lakehouse with POPIA-compliant analytics framework.</p>
         </div>
 
         <div class="project-card">
           <img src="assets/exxaro.png" alt="Exxaro">
           <h4>Exxaro</h4>
-          <p>AI-driven mining platform with data masking; double-digit efficiency gains.</p>
+          <p>Designed AI-driven operational intelligence framework with data masking protocols for mining operations; client executed solution for efficiency gains.</p>
         </div>
 
         <div class="project-card">
           <img src="assets/astron.png" alt="Astron Energy">
           <h4>Astron Energy</h4>
-          <p>GenAI for customer engagement & fuel retail intelligence.</p>
+          <p>Developed GenAI framework for customer engagement and fuel retail intelligence using conversational AI patterns.</p>
         </div>
 
         <div class="project-card">
           <img src="assets/mtn.png" alt="MTN">
           <h4>MTN</h4>
-          <p>Cloud-native network modernization + workforce upskilling in DevOps.</p>
+          <p>Architected cloud-native transformation strategy and microservices decomposition roadmap; client adopted blueprint for phased modernization.</p>
         </div>
 
         <div class="project-card">
           <img src="assets/telkom.png" alt="Telkom">
           <h4>Telkom</h4>
-          <p>Reduced system downtime by 41% via real-time analytics & microservices.</p>
+          <p>Modeled event-driven resilience architecture to reduce system downtime; client actively implementing solution based on our architectural guidance.</p>
         </div>
 
         <div class="project-card">
           <img src="assets/eskom (eppf).png" alt="Eskom (EPPF)">
           <h4>Eskom (EPPF)</h4>
-          <p>Comprehensive AI maturity assessment & roadmap for financial services.</p>
+          <p>Designed AI maturity assessment and GenAI adoption roadmap for pension fund operations; client used output to prioritize 2025–2026 innovation budget.</p>
         </div>
 
         <div class="project-card">
           <img src="assets/toyota.png" alt="Toyota SA">
           <h4>Toyota SA</h4>
-          <p>GenAI on manufacturing floor for self-correcting production lines.</p>
+          <p>Architected self-correcting production line framework using computer vision and LLM reasoning; client adopted and scaled solution across facilities.</p>
         </div>
 
         <div class="project-card">
-          <img src="assets/emteerecords.png" alt="eMtee Records">
-          <h4>eMtee Records</h4>
-          <p>Tripled streaming reach in 12 months via data-driven fan engagement.</p>
+          <img src="assets/ibm.jpg" alt="IBM">
+          <h4>IBM</h4>
+          <p>Prototyped watsonx.ai capabilities including RAG patterns and chatbot logic in sandbox environments to demonstrate feasibility for client engagements.</p>
         </div>
 
       </div>
@@ -605,94 +678,35 @@
 
     <!-- Professional Journey -->
     <section class="card">
-      <h2><i class="fas fa-briefcase"></i> Professional Journey</h2>
+      <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+      
       <div class="journey-item">
-        <h3>Senior Executive Intern – IBM South Africa (2024–Present)</h3>
-        <p>Lead enterprise architecture & AI strategy for Fortune 500 clients and government. Certified in IBM GenAI, Watsonx, Trustworthy AI, DevOps, and more.</p>
+        <h3>DevOps Engineer — MTN South Africa</h3>
+        <div class="date">Aug 2025 – Present</div>
+        <p>Design, configure, and maintain CI/CD pipelines using Azure DevOps for cloud-native applications. Lead incident response during service outages—diagnosing root causes and restoring critical services. Manage end-to-end cloud application lifecycle on Microsoft Azure, from code commit through deployment and monitoring. Deploy and configure new microservices and applets with seamless integration into existing infrastructure. Automate infrastructure provisioning using Infrastructure-as-Code principles to reduce manual intervention and deployment errors. Collaborate with development, QA, and SRE teams to optimize release velocity while maintaining system stability.</p>
       </div>
+      
       <div class="journey-item">
-        <h3>Technology & Culture Consultant (2023–Present)</h3>
-        <p>Advised African governments and corporates on ethical AI, digital identity, and narrative-led transformation.</p>
-      </div>
-      <div class="journey-item">
-        <h3>Media & Entertainment Strategist (2023)</h3>
-        <p>Produced chart-topping content for YFM & SABC; repositioned eMtee Records into a data-powered music empire.</p>
+        <h3>GenAI Consultant — IBM South Africa</h3>
+        <div class="date">Mar 2024 – Jul 2025</div>
+        <p>Architected GenAI and cloud-native solution blueprints for enterprise clients in health, energy, telecom, and financial services. Prototyped watsonx.ai capabilities—including prompt engineering, RAG patterns, and chatbot logic—in sandbox environments to demonstrate feasibility. Applied IBM Enterprise Design Thinking to co-create user-centered architectures aligned with business outcomes. Advised on Trustworthy AI principles (fairness, explainability, robustness) for regulated sectors. Translated complex AI concepts into executive-ready narratives for C-suite stakeholders.</p>
       </div>
     </section>
 
     <!-- Education & Certifications -->
     <section class="card">
-      <h2><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
-      <h3>University of the Witwatersrand (2013)</h3>
-      <p>Bachelor of Arts in Psychology — foundation for human-centered tech solutions.</p>
+      <h2><i class="fas fa-graduation-cap"></i> Education & Digital Credentials</h2>
+      
+      <div style="background:rgba(0,102,204,0.05); border-radius:14px; padding:1.8rem; margin-bottom:2.2rem; border-left:4px solid var(--ibm-blue);">
+        <h3 style="color:var(--ibm-blue); margin-bottom:0.5rem; font-size:1.3rem;">Bachelor of Arts in Psychology</h3>
+        <p style="font-size:1.1rem; font-weight:500;">University of the Witwatersrand | 2013</p>
+        <p style="color:#333; margin-top:0.7rem; line-height:1.65;">
+          Foundation for human-centered technology design—applied to create AI interactions and systems that drive adoption, trust, and behavioral change.
+        </p>
+      </div>
 
-      <h3 style="margin-top: 2rem;">Professional Certifications</h3>
+      <h3 style="margin-bottom:1.8rem; color:var(--ibm-blue); font-size:1.4rem;">Professional Certifications</h3>
       <div class="certs-grid">
-
-        <!-- 1. Git -->
-        <div class="cert-card">
-          <div class="cert-icon"><i class="fab fa-git-alt"></i></div>
-          <div class="cert-title">Git Masterclass</div>
-          <div class="cert-issuer">Warp 9 Training · Codestars</div>
-          <div class="cert-date">Issued: 2024</div>
-          <span class="cert-link">Training Completion</span>
-        </div>
-
-        <!-- 2. Enterprise Design Thinking - Team Essentials -->
-        <div class="cert-card">
-          <div class="cert-icon"><i class="fas fa-lightbulb"></i></div>
-          <div class="cert-title">Enterprise Design Thinking – Team Essentials for AI</div>
-          <div class="cert-issuer">IBM</div>
-          <div class="cert-date">Issued: 31 Jul 2024</div>
-          <a href="https://www.credly.com/go/CMzn9LzE" class="cert-link" target="_blank">Verify Credential</a>
-        </div>
-
-        <!-- 3. Enterprise Design Thinking Practitioner -->
-        <div class="cert-card">
-          <div class="cert-icon"><i class="fas fa-user-friends"></i></div>
-          <div class="cert-title">Enterprise Design Thinking Practitioner</div>
-          <div class="cert-issuer">IBM</div>
-          <div class="cert-date">Issued: 31 Jul 2024</div>
-          <a href="https://www.credly.com/go/lq9PGOMq" class="cert-link" target="_blank">Verify Credential</a>
-        </div>
-
-        <!-- 4. IBM Cloud Advocate -->
-        <div class="cert-card">
-          <div class="cert-icon"><i class="fab fa-cloud"></i></div>
-          <div class="cert-title">IBM Cloud Advocate Essentials</div>
-          <div class="cert-issuer">IBM</div>
-          <div class="cert-date">Issued: 29 Oct 2024</div>
-          <a href="https://www.credly.com/go/0Rs4PNTR" class="cert-link" target="_blank">Verify Credential</a>
-        </div>
-
-        <!-- 5. Chatbot Building -->
-        <div class="cert-card">
-          <div class="cert-icon"><i class="fas fa-robot"></i></div>
-          <div class="cert-title">Chatbot Building Essentials with IBM watsonx Assistant (V2)</div>
-          <div class="cert-issuer">Coursera · Authorized by IBM</div>
-          <div class="cert-date">Issued: 30 Sep 2025</div>
-          <a href="https://www.credly.com/go/KFdY5ji0" class="cert-link" target="_blank">Verify Credential</a>
-        </div>
-
-        <!-- 6. Intelligent Virtual Agents -->
-        <div class="cert-card">
-          <div class="cert-icon"><i class="fas fa-comments"></i></div>
-          <div class="cert-title">Introduction to Intelligent Virtual Agents (IVAs)</div>
-          <div class="cert-issuer">IBM</div>
-          <div class="cert-date">Issued: 24 Sep 2025</div>
-          <a href="https://www.credly.com/badges/03c7c87b-0611-49d5-ae94-677afa19e2a0" class="cert-link" target="_blank">Verify Credential</a>
-        </div>
-
-        <!-- 7. watsonx Essentials -->
-        <div class="cert-card">
-          <div class="cert-icon"><i class="fas fa-brain"></i></div>
-          <div class="cert-title">IBM watsonx Essentials</div>
-          <div class="cert-issuer">IBM</div>
-          <div class="cert-date">Issued: 16 Jan 2025</div>
-          <span class="cert-link">Internal IBM Credential</span>
-        </div>
-
-        <!-- 8. Generative AI Foundations -->
         <div class="cert-card">
           <div class="cert-icon"><i class="fas fa-infinity"></i></div>
           <div class="cert-title">IBM Generative AI Foundations</div>
@@ -700,8 +714,7 @@
           <div class="cert-date">Issued: 16 Jan 2025</div>
           <a href="https://www.credly.com/go/LNpHvuKn" class="cert-link" target="_blank">Verify Credential</a>
         </div>
-
-        <!-- 9. Trustworthy AI -->
+        
         <div class="cert-card">
           <div class="cert-icon"><i class="fas fa-shield-alt"></i></div>
           <div class="cert-title">Trustworthy AI and AI Ethics</div>
@@ -709,76 +722,79 @@
           <div class="cert-date">Issued: 15 Jan 2025</div>
           <a href="https://www.credly.com/go/cOZI8QLx" class="cert-link" target="_blank">Verify Credential</a>
         </div>
-
-        <!-- 10. Consulting Certificate -->
+        
         <div class="cert-card">
-          <div class="cert-icon"><i class="fas fa-handshake"></i></div>
-          <div class="cert-title">IBM Consulting Certificate – Client Engagement Excellence</div>
+          <div class="cert-icon"><i class="fas fa-brain"></i></div>
+          <div class="cert-title">IBM watsonx Essentials</div>
           <div class="cert-issuer">IBM</div>
-          <div class="cert-date">Completed: Nov 2024</div>
+          <div class="cert-date">Issued: 16 Jan 2025</div>
           <span class="cert-link">Internal IBM Credential</span>
         </div>
-
-        <!-- 11. Integrity Badge -->
+        
         <div class="cert-card">
-          <div class="cert-icon"><i class="fas fa-star"></i></div>
-          <div class="cert-title">IBM Integrity Badge – Ethical Leadership</div>
-          <div class="cert-issuer">IBM</div>
-          <div class="cert-date">Issued: Jul 2024</div>
-          <span class="cert-link">Internal IBM Credential</span>
+          <div class="cert-icon"><i class="fas fa-robot"></i></div>
+          <div class="cert-title">Chatbot Building Essentials with IBM watsonx Assistant (V2)</div>
+          <div class="cert-issuer">Coursera · Authorized by IBM</div>
+          <div class="cert-date">Issued: 30 Sep 2025</div>
+          <a href="https://www.credly.com/go/KFdY5ji0" class="cert-link" target="_blank">Verify Credential</a>
         </div>
-
+        
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-comments"></i></div>
+          <div class="cert-title">Introduction to Intelligent Virtual Agents (IVAs)</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-date">Issued: 24 Sep 2025</div>
+          <a href="https://www.credly.com/badges/03c7c87b-0611-49d5-ae94-677afa19e2a0" class="cert-link" target="_blank">Verify Credential</a>
+        </div>
+        
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-lightbulb"></i></div>
+          <div class="cert-title">Enterprise Design Thinking – Team Essentials for AI</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-date">Issued: 31 Jul 2024</div>
+          <a href="https://www.credly.com/go/CMzn9LzE" class="cert-link" target="_blank">Verify Credential</a>
+        </div>
+        
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-user-friends"></i></div>
+          <div class="cert-title">Enterprise Design Thinking Practitioner</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-date">Issued: 31 Jul 2024</div>
+          <a href="https://www.credly.com/go/lq9PGOMq" class="cert-link" target="_blank">Verify Credential</a>
+        </div>
+        
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fab fa-cloud"></i></div>
+          <div class="cert-title">IBM Cloud Advocate Essentials</div>
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-date">Issued: 29 Oct 2024</div>
+          <a href="https://www.credly.com/go/0Rs4PNTR" class="cert-link" target="_blank">Verify Credential</a>
+        </div>
+        
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fab fa-git-alt"></i></div>
+          <div class="cert-title">Git Masterclass</div>
+          <div class="cert-issuer">Warp 9 Training · Codestars</div>
+          <div class="cert-date">Issued: 2024</div>
+          <span class="cert-link">Training Completion</span>
+        </div>
       </div>
-    </section>
-
-    <!-- Thought Leadership -->
-    <section class="card">
-      <h2><i class="fas fa-lightbulb"></i> Thought Leadership</h2>
-      <p>Keynote speaker on AI, culture, and digital transformation. Trusted C-suite advisor across finance, energy, telecom, and public sectors.</p>
-      <p class="philosophy" style="margin-top: 1rem;">
-        “I lead with clarity, courage, and finesse. No noise. No ego. Just purpose, precision, and relentless execution.<br>
-        Technology without narrative is a tool without soul.”
-      </p>
     </section>
 
   </main>
 
   <footer id="contact">
-    <h3>Let’s build the future — before it asks permission.</h3>
+    <h3 style="margin-bottom:1rem; font-size:1.6rem;">Let's build the future — before it asks permission.</h3>
     <div class="contact-links">
       <a href="https://linkedin.com/in/wiseman-shabalala-1b142b317" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="tel:+27837254362"><i class="fas fa-phone"></i> Call</a>
-      <a href="mailto:Wiseman.Shabalala@ibm.com"><i class="fas fa-envelope"></i> Email</a>
+      <a href="tel:+27613851887"><i class="fas fa-phone"></i> 061 385 1887</a>
+      <a href="mailto:Wiseman.Shabalala94@gmail.com"><i class="fas fa-envelope"></i> Wiseman.Shabalala94@gmail.com</a>
     </div>
-    <p style="margin-top: 1.5rem; opacity: 0.8;">Ready to partner on your next intelligent-systems initiative? Let’s co-create what’s next.</p>
+    <p style="margin-top: 1.8rem; opacity: 0.95; max-width:650px; margin-left:auto; margin-right:auto; line-height:1.7; font-size:1.1rem;">
+      Solution Architecture Strategist • AI Innovator • Gen AI Developer • DevOps Engineer<br>
+      Johannesburg, South Africa
+    </p>
   </footer>
-
-  <!-- QR Code Section -->
-  <section class="qr-section">
-    <h2><i class="fas fa-qrcode"></i> Scan to View My Bio</h2>
-    <div class="qr-code">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wiseman-shabalala.netlify.app" alt="QR Code to Wiseman's Bio" style="width:100%; height:auto;"/>
-    </div>
-    <p class="qr-caption">Scan with your phone camera to view this profile instantly</p>
-  </section>
-
-  <script>
-    // Animate elements on scroll
-    document.addEventListener("DOMContentLoaded", function() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-
-      // Observe all cards and headings
-      document.querySelectorAll('.card, h2, .project-card, .cert-card').forEach(el => {
-        observer.observe(el);
-      });
-    });
-  </script>
 
 </body>
 </html>
